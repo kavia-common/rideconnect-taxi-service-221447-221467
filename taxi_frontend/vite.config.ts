@@ -2,6 +2,7 @@ import { svelteTesting } from "@testing-library/svelte/vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 
+// Note: VITE_* env vars are automatically exposed to client.
 export default defineConfig({
   plugins: [sveltekit()],
   server: {
@@ -22,7 +23,6 @@ export default defineConfig({
       {
         extends: "./vite.config.ts",
         plugins: [svelteTesting()],
-
         test: {
           name: "client",
           environment: "jsdom",
@@ -34,7 +34,6 @@ export default defineConfig({
       },
       {
         extends: "./vite.config.ts",
-
         test: {
           name: "server",
           environment: "node",
